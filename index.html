@@ -1,0 +1,477 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Praachi on Paper</title>
+<meta name="description" content="Praachi is a children's author and illustrator who draws everyday life like a cartoon. Get her picture book, Mia the Everything Bagel, see her sketchbook, and say hello.">
+<meta property="og:title" content="Praachi on Paper">
+<meta property="og:description" content="Children's author and illustrator. Everyday life, drawn like a cartoon.">
+<meta property="og:image" content="assets/og.jpg">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect x='6' y='6' width='52' height='52' rx='3' fill='%23fff' stroke='%23D2463B' stroke-width='4' stroke-dasharray='5 3'/%3E%3Ctext x='32' y='42' font-size='28' text-anchor='middle' font-family='sans-serif' font-weight='700' fill='%231C2340'%3Ep%3C/text%3E%3C/svg%3E">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Shantell+Sans:wght@400;600;800&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=DM+Mono:wght@400;500&family=Gaegu:wght@400;700&family=Nunito:wght@400;700;800&family=Young+Serif&family=Figtree:wght@400;600;700&family=IBM+Plex+Mono:wght@400;500&family=Zilla+Slab:wght@600;700&family=Source+Sans+3:wght@400;600;700&family=Courier+Prime:wght@400;700&family=Baloo+2:wght@600;800&family=Overpass+Mono:wght@400;600&display=swap">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Shantell+Sans:wght@400;600;800&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=DM+Mono:wght@400;500&family=Gaegu:wght@400;700&family=Nunito:wght@400;700;800&family=Young+Serif&family=Figtree:wght@400;600;700&family=IBM+Plex+Mono:wght@400;500&family=Zilla+Slab:wght@600;700&family=Source+Sans+3:wght@400;600;700&family=Courier+Prime:wght@400;700&family=Baloo+2:wght@600;800&family=Overpass+Mono:wght@400;600&display=swap">
+<style>
+/* Layout: an airmail letter. Striped envelope edge up top, a stamp-framed portrait hero,
+   a departures-board book panel, a sketchbook strip, a sheet of "little things" stamps, and an envelope to write back. */
+:root{
+  --bg:#F5F6FA; --paper:#FFFFFF; --ink:#1C2340; --muted:#5B6280;
+  --red:#D2463B; --blue:#2E58B5; --chalk:#F2C14E; --line:#DCE0EC;
+  --board:#1A1F33; --board-fg:#F6D77A; --board-dim:#8C93AE;
+  --sky:#CFE0F7;
+  --w-display:800; --r:4px; --r-card:6px; --r-btn:999px;
+  --f-display:"Shantell Sans", "Comic Neue", "Segoe Print", system-ui, sans-serif;
+  --f-body:"Atkinson Hyperlegible", "Helvetica Neue", Arial, sans-serif;
+  --f-mono:"DM Mono", ui-monospace, Menlo, monospace;
+  color-scheme:light;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#121729; --paper:#1C2340; --ink:#EEF0F8; --muted:#A6ACC6;
+  --red:#F06B60; --blue:#86A6F2; --chalk:#F2C14E; --line:#2E3657;
+  --board:#0B0F1E; --board-fg:#F6D77A; --board-dim:#7E86A3; --sky:#27355E; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#121729; --paper:#1C2340; --ink:#EEF0F8; --muted:#A6ACC6;
+  --red:#F06B60; --blue:#86A6F2; --chalk:#F2C14E; --line:#2E3657;
+  --board:#0B0F1E; --board-fg:#F6D77A; --board-dim:#7E86A3; --sky:#27355E; color-scheme:dark}
+
+*{box-sizing:border-box}
+img{max-width:100%}
+[hidden]{display:none!important}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font:1.0625rem/1.65 var(--f-body);margin:0}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--blue);outline-offset:3px;border-radius:4px}
+.wrap{max-width:1120px;margin:0 auto;padding-inline:clamp(16px,4vw,40px)}
+h1,h2,h3{font-family:var(--f-display);line-height:1.1;text-wrap:balance;margin:0}
+.eyebrow{font:500 .78rem/1 var(--f-mono);letter-spacing:.14em;text-transform:uppercase;color:var(--red)}
+.ph{background:color-mix(in srgb,var(--chalk) 28%,transparent);outline:1.5px dashed var(--chalk);outline-offset:2px;border-radius:3px;padding:0 .2em}
+
+/* airmail edge */
+.airmail{height:10px;background:repeating-linear-gradient(-45deg,var(--red) 0 16px,transparent 16px 26px,var(--blue) 26px 42px,transparent 42px 52px)}
+
+/* nav */
+header.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:color-mix(in srgb,var(--bg) 92%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:14px;flex-wrap:wrap}
+.logo{font:var(--w-display) 1.25rem/1 var(--f-display);text-decoration:none;letter-spacing:-.01em}
+.logo span{color:var(--red)}
+.nav nav{display:flex;gap:clamp(12px,2.5vw,28px);flex-wrap:wrap}
+.nav nav a{text-decoration:none;font-weight:700;font-size:.95rem;color:var(--muted)}
+.nav nav a:hover{color:var(--ink)}
+
+/* stamp frame: scalloped edge via dotted holes + inner fill */
+.stamp{--s:var(--paper);--hole:var(--bg);position:relative;padding:10px;
+  background:radial-gradient(circle,var(--hole) 0 4px,var(--s) 4.6px) -6px -6px/12px 12px}
+.stamp>.in{background:var(--s);height:100%}
+
+/* hero */
+.hero{padding-block:clamp(40px,7vw,88px)}
+.hero .wrap{display:grid;grid-template-columns:1.15fr .85fr;gap:clamp(32px,6vw,72px);align-items:center}
+.hero h1{font-size:clamp(2.6rem,6.4vw,4.9rem);font-weight:var(--w-display);letter-spacing:-.02em;margin-block:18px 22px}
+.hero h1 em{font-style:normal;color:var(--blue);position:relative;white-space:nowrap}
+.hero h1 em::after{content:"";position:absolute;left:-2%;right:-2%;bottom:.04em;height:.22em;background:var(--chalk);opacity:.55;z-index:-1;border-radius:40% 60% 50% 40%}
+.hero p.lede .bk{font-style:normal;font-weight:700;color:var(--ink)}
+.hero p.lede{font-size:1.2rem;max-width:34ch;color:var(--muted);margin:0 0 30px}
+.ctas{display:flex;gap:14px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:.5em;font:700 1rem/1 var(--f-body);padding:15px 22px;border-radius:var(--r-btn);text-decoration:none;border:2px solid var(--ink);transition:transform .15s}
+.btn:hover{transform:translateY(-2px)}
+.btn.primary{background:var(--ink);color:var(--bg)}
+.btn.ghost{background:transparent}
+.portrait{position:relative;justify-self:center;width:min(100%,380px);transform:rotate(2.5deg)}
+.portrait img{display:block;width:100%;aspect-ratio:3/4;object-fit:cover;filter:sepia(.15)}
+.portrait .in{padding:12px 12px 52px}
+.portrait .cap{position:absolute;left:22px;right:22px;bottom:14px;display:flex;justify-content:space-between;align-items:baseline;gap:10px}
+.portrait .cap .nm{font:600 1rem/1 var(--f-display);color:var(--muted)}
+.portrait .cap .fv{display:flex;flex-direction:column;align-items:flex-end;gap:4px;font:700 1.05rem/1 var(--f-body);letter-spacing:.24em;margin-right:-.24em;text-transform:uppercase;color:var(--ink)}
+.portrait .cap .fv small{font:500 .56rem/1 var(--f-mono);letter-spacing:.18em;color:var(--muted)}
+.postmark{position:absolute;left:-70px;top:30px;width:200px;height:auto;color:var(--red);opacity:.8;transform:rotate(-12deg);pointer-events:none}
+.postmark text{font:500 11px var(--f-mono);letter-spacing:.14em;fill:currentColor;stroke:none}
+
+/* sections */
+section{padding-block:clamp(56px,8vw,96px)}
+.sec-head{display:flex;flex-direction:column;gap:10px;margin-bottom:36px;max-width:60ch}
+.sec-head h2{font-size:clamp(2rem,4.2vw,3rem);font-weight:var(--w-display)}
+.sec-head p{margin:0;color:var(--muted)}
+
+/* book */
+.book{background:var(--paper);border-block:1px solid var(--line)}
+.book-grid{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:clamp(32px,6vw,72px);align-items:center}
+.cover{aspect-ratio:8/10;max-width:380px;width:100%;justify-self:center;border-radius:6px 14px 14px 6px;background:linear-gradient(180deg,var(--sky),color-mix(in srgb,var(--sky) 55%,var(--paper)));box-shadow:inset 10px 0 0 color-mix(in srgb,var(--ink) 12%,transparent),0 24px 40px -18px color-mix(in srgb,var(--ink) 45%,transparent);position:relative;overflow:hidden;padding:28px 28px 28px 38px;display:flex;flex-direction:column;justify-content:space-between}
+.cover h3{font-size:clamp(1.6rem,3vw,2.2rem);font-weight:var(--w-display);color:var(--ink)}
+.cover .by{font:600 1rem/1 var(--f-display);color:var(--ink)}
+.cover svg{position:absolute;right:-6%;top:34%;width:78%;color:var(--ink)}
+.book p{margin:0 0 18px;max-width:58ch}
+.board{background:var(--board);color:var(--board-fg);border-radius:var(--r-card);padding:18px 20px;font:500 .9rem/1.2 var(--f-mono);margin:26px 0;overflow-x:auto}
+.board .row{display:grid;grid-template-columns:7.5rem 1fr auto;gap:12px;padding:9px 0;border-bottom:1px dashed color-mix(in srgb,var(--board-dim) 40%,transparent);text-transform:uppercase;letter-spacing:.08em;min-width:420px}
+.board .row:last-child{border:0}
+.board .row.h{color:var(--board-dim);font-size:.72rem}
+.board .ok{color:#7BE0A1}
+.buy{display:flex;gap:12px;flex-wrap:wrap}
+
+/* instagram feed as postcards */
+.feed-head{display:flex;justify-content:space-between;align-items:end;gap:20px;flex-wrap:wrap;margin-bottom:36px}
+.feed-head .sec-head{margin:0}
+.handle{display:inline-flex;align-items:center;gap:10px;font:600 1rem/1 var(--f-body);text-decoration:none;padding:11px 16px;border:1.5px solid var(--line);border-radius:var(--r-btn);background:var(--paper)}
+.handle svg{width:20px;height:20px}
+.feed{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:26px}
+.post{position:relative;display:flex;flex-direction:column;background:var(--paper);padding:12px 12px 14px;border:1px solid var(--line);border-radius:var(--r);text-decoration:none;box-shadow:0 14px 26px -18px color-mix(in srgb,var(--ink) 50%,transparent);transition:transform .2s}
+.post:nth-child(3n+1){transform:rotate(-1.2deg)}.post:nth-child(3n+2){transform:rotate(.8deg)}.post:nth-child(3n){transform:rotate(-.4deg)}
+.post:hover{transform:rotate(0) translateY(-5px)}
+.post .ph-img{aspect-ratio:4/5;border-radius:calc(var(--r) * .6);overflow:hidden;background:
+  repeating-linear-gradient(45deg,transparent 0 10px,color-mix(in srgb,var(--ink) 5%,transparent) 10px 11px),var(--sky);display:grid;place-items:center;color:var(--muted)}
+.post .ph-img img{width:100%;height:100%;object-fit:cover;display:block}
+.post .ph-img .empty{display:flex;flex-direction:column;align-items:center;gap:8px;font:500 .72rem/1.2 var(--f-mono);letter-spacing:.1em;text-transform:uppercase;text-align:center;padding:12px}
+.post .ph-img .empty svg{width:44px;height:44px}
+.post .meta{display:flex;justify-content:space-between;gap:10px;align-items:baseline;padding:12px 4px 0}
+.post .cap{font:600 1rem/1.35 var(--f-display);color:var(--ink);min-width:0}
+.post .date{font:500 .68rem/1 var(--f-mono);letter-spacing:.1em;text-transform:uppercase;color:var(--muted);white-space:nowrap}
+.post .pm{position:absolute;top:-14px;right:-12px;width:64px;height:64px;border-radius:50%;border:2px solid var(--red);color:var(--red);display:grid;place-items:center;text-align:center;font:500 .55rem/1.25 var(--f-mono);letter-spacing:.1em;text-transform:uppercase;transform:rotate(12deg);background:color-mix(in srgb,var(--paper) 70%,transparent)}
+.feed-note{margin-top:26px;font-size:.95rem;color:var(--muted)}
+.feed-note a{color:var(--blue);font-weight:700}
+
+/* little things */
+.about-intro{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(24px,5vw,64px);align-items:end;margin-bottom:40px}
+.about-intro p{margin:0;font-size:1.15rem;max-width:44ch}
+.album{--album:color-mix(in srgb,var(--sky) 35%,var(--bg));position:relative;padding:clamp(18px,3vw,34px);border-radius:var(--r-card);background:
+  radial-gradient(circle at 1px 1px,color-mix(in srgb,var(--ink) 10%,transparent) 1px,transparent 1.5px) 0 0/18px 18px,var(--album);border:1px solid var(--line)}
+.album-top{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font:500 .74rem/1 var(--f-mono);letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:22px}
+.sheet{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:26px}
+.sheet .stamp{--s:var(--paper);--hole:var(--album);filter:drop-shadow(0 8px 10px color-mix(in srgb,var(--ink) 14%,transparent));transition:transform .2s}
+.sheet .stamp:nth-child(4n+1){transform:rotate(-1.5deg)}.sheet .stamp:nth-child(4n+2){transform:rotate(1deg)}.sheet .stamp:nth-child(4n+3){transform:rotate(-.5deg)}.sheet .stamp:nth-child(4n){transform:rotate(1.6deg)}
+.sheet .stamp:hover{transform:rotate(0) scale(1.02)}
+.sheet .in{padding:10px;display:flex;flex-direction:column;gap:12px}
+.vig{--t:var(--sky);position:relative;aspect-ratio:4/3;border:2px solid var(--ink);background:color-mix(in srgb,var(--t) 26%,var(--paper));display:grid;place-items:center;overflow:hidden;color:var(--ink)}
+.sheet .stamp:nth-child(4n+1) .vig{--t:var(--red)}.sheet .stamp:nth-child(4n+2) .vig{--t:var(--blue)}.sheet .stamp:nth-child(4n+3) .vig{--t:var(--chalk)}.sheet .stamp:nth-child(4n) .vig{--t:var(--sky)}
+.vig svg{width:74%;height:auto;overflow:visible}
+.vig .val{position:absolute;top:6px;left:8px;font:var(--w-display) 1.35rem/1 var(--f-display);color:var(--ink)}
+.vig .country{position:absolute;bottom:0;left:0;right:0;padding:5px 8px;background:var(--ink);color:var(--paper);font:500 .6rem/1 var(--f-mono);letter-spacing:.18em;text-transform:uppercase;display:flex;justify-content:space-between}
+.cancel{position:absolute;top:-6px;right:-14px;width:120px;height:70px;color:var(--ink);opacity:.55;pointer-events:none;transform:rotate(-8deg)}
+.cancel text{font:500 7px var(--f-mono);letter-spacing:.12em;fill:currentColor}
+.sheet .txt{padding:0 6px 6px;display:flex;flex-direction:column;gap:6px}
+.sheet .kind{font:500 .66rem/1 var(--f-mono);letter-spacing:.14em;text-transform:uppercase;color:var(--red)}
+.sheet h3{font-size:1.2rem;font-weight:var(--w-display)}
+.sheet p{margin:0;font-size:.96rem;color:var(--muted)}
+.signoff{margin:56px auto 0;max-width:820px;background:var(--paper);border:1px solid var(--line);border-radius:var(--r-card);overflow:hidden;transform:rotate(-.8deg);box-shadow:0 22px 40px -24px color-mix(in srgb,var(--ink) 55%,transparent)}
+.signoff blockquote{margin:0;padding:clamp(28px,5vw,52px) clamp(22px,5vw,56px) 10px;font:var(--w-display) clamp(1.8rem,4.6vw,3.2rem)/1.15 var(--f-display);letter-spacing:-.01em;text-wrap:balance;color:var(--ink)}
+.signoff em{font-style:normal;color:var(--red);position:relative;white-space:nowrap}
+.signoff em::after{content:"";position:absolute;left:-3%;right:-3%;bottom:.02em;height:.24em;background:var(--chalk);opacity:.5;z-index:-1;border-radius:40% 60% 50% 40%}
+.signoff blockquote{position:relative;z-index:0}
+.signoff figcaption{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:6px clamp(22px,5vw,56px) clamp(22px,4vw,36px)}
+.signoff .sig{font:600 1.4rem/1 var(--f-display);color:var(--muted)}
+.signoff .sig::before{content:"— "}
+.signoff .pmk{width:72px;height:72px;border-radius:50%;border:2px solid var(--blue);color:var(--blue);display:grid;place-items:center;text-align:center;font:500 .58rem/1.3 var(--f-mono);letter-spacing:.12em;text-transform:uppercase;transform:rotate(14deg);flex:none}
+
+/* contact envelope */
+.envelope{background:var(--paper);border-radius:var(--r-card);position:relative;padding:12px}
+.envelope::before{content:"";position:absolute;inset:0;border-radius:var(--r-card);padding:10px;background:repeating-linear-gradient(-45deg,var(--red) 0 16px,var(--paper) 16px 26px,var(--blue) 26px 42px,var(--paper) 42px 52px);-webkit-mask:linear-gradient(#000 0 0) content-box exclude,linear-gradient(#000 0 0);mask:linear-gradient(#000 0 0) content-box exclude,linear-gradient(#000 0 0)}
+.env-in{position:relative;padding:clamp(24px,5vw,52px);display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:clamp(28px,5vw,56px)}
+.env-in h2{font-size:clamp(1.9rem,4vw,2.7rem);font-weight:var(--w-display);margin-bottom:12px}
+.env-in p{margin:0 0 16px;color:var(--muted);max-width:46ch}
+form{display:flex;flex-direction:column;gap:12px}
+label{font:500 .74rem/1 var(--f-mono);letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+input,select,textarea{resize:vertical;font:inherit;padding:13px 14px;border:1.5px solid var(--line);border-radius:var(--r);background:var(--bg);color:var(--ink);width:100%}
+input:focus,select:focus,textarea:focus{border-color:var(--blue);outline:none}
+.note{font-size:.95rem;color:var(--blue);font-weight:700;min-height:1.4em;margin:0}
+.reach{display:flex;flex-direction:column;gap:14px;border-left:2px dashed var(--line);padding-left:clamp(20px,4vw,40px)}
+.reach .line{display:flex;flex-direction:column;gap:4px}
+.reach .v{font:600 1.1rem/1.3 var(--f-display)}
+
+footer{padding-block:36px 48px;color:var(--muted);font-size:.9rem}
+footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+
+@media (max-width:860px){
+  .hero .wrap,.book-grid,.about-intro,.env-in{grid-template-columns:1fr}
+  .portrait{width:min(86%,340px)}
+  .postmark{left:-30px;width:150px}
+  .feed,.sheet{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .reach{border-left:0;padding-left:0;border-top:2px dashed var(--line);padding-top:24px}
+}
+@media (max-width:520px){
+  .feed,.sheet{grid-template-columns:1fr}
+  .post .pm{right:-4px}
+  .nav nav{gap:14px}
+  .postmark{display:none}
+}
+
+/* ---------- alternate looks (style switcher) ---------- */
+:root[data-look="chalk"]{--f-display:'Gaegu', 'Comic Neue', system-ui, sans-serif;--f-body:'Nunito', 'Helvetica Neue', Arial, sans-serif;--f-mono:'DM Mono', ui-monospace, monospace;--w-display:700;--r:14px;--r-card:22px;--r-btn:999px;--bg:#F3F1F8;--paper:#FFFFFF;--ink:#2B2A45;--muted:#625F80;--red:#D9487A;--blue:#1F8C7E;--chalk:#F4B942;--line:#E2DEEE;--sky:#E3DDF6}
+@media (prefers-color-scheme:dark){:root[data-look="chalk"]:not([data-theme="light"]){--bg:#1F2527;--paper:#2B3336;--ink:#F1F0EA;--muted:#B4BBB8;--red:#FF8FAB;--blue:#7EDBC8;--chalk:#F7D774;--line:#3A4447;--sky:#34403F;color-scheme:dark}}
+:root[data-look="chalk"][data-theme="dark"]{--bg:#1F2527;--paper:#2B3336;--ink:#F1F0EA;--muted:#B4BBB8;--red:#FF8FAB;--blue:#7EDBC8;--chalk:#F7D774;--line:#3A4447;--sky:#34403F;color-scheme:dark}
+:root[data-look="storm"]{--f-display:'Young Serif', Georgia, serif;--f-body:'Figtree', 'Helvetica Neue', Arial, sans-serif;--f-mono:'IBM Plex Mono', ui-monospace, monospace;--w-display:400;--r:2px;--r-card:4px;--r-btn:4px;--bg:#ECEFF4;--paper:#FFFFFF;--ink:#1E2838;--muted:#5A6578;--red:#5847C2;--blue:#2F7397;--chalk:#F2C200;--line:#D6DCE6;--sky:#D3DCE8}
+@media (prefers-color-scheme:dark){:root[data-look="storm"]:not([data-theme="light"]){--bg:#0F141E;--paper:#1A2230;--ink:#E8ECF2;--muted:#9EA9BB;--red:#A99EF6;--blue:#7FBFDD;--chalk:#F5C518;--line:#2A3446;--sky:#26344B;color-scheme:dark}}
+:root[data-look="storm"][data-theme="dark"]{--bg:#0F141E;--paper:#1A2230;--ink:#E8ECF2;--muted:#9EA9BB;--red:#A99EF6;--blue:#7FBFDD;--chalk:#F5C518;--line:#2A3446;--sky:#26344B;color-scheme:dark}
+:root[data-look="library"]{--f-display:'Zilla Slab', Rockwell, Georgia, serif;--f-body:'Source Sans 3', 'Helvetica Neue', Arial, sans-serif;--f-mono:'Courier Prime', 'Courier New', monospace;--w-display:700;--r:2px;--r-card:3px;--r-btn:3px;--bg:#E9F0EB;--paper:#FBFDFB;--ink:#163A36;--muted:#4D6A64;--red:#BE3F2B;--blue:#5B3C99;--chalk:#E3AC32;--line:#CCDCD2;--sky:#CBE2D6}
+@media (prefers-color-scheme:dark){:root[data-look="library"]:not([data-theme="light"]){--bg:#0E1D1B;--paper:#162E2A;--ink:#E5F0EA;--muted:#9DB8AF;--red:#F07A64;--blue:#B79DEB;--chalk:#E7B33E;--line:#28463F;--sky:#21403A;color-scheme:dark}}
+:root[data-look="library"][data-theme="dark"]{--bg:#0E1D1B;--paper:#162E2A;--ink:#E5F0EA;--muted:#9DB8AF;--red:#F07A64;--blue:#B79DEB;--chalk:#E7B33E;--line:#28463F;--sky:#21403A;color-scheme:dark}
+:root[data-look="crayon"]{--f-display:'Baloo 2', 'Arial Rounded MT Bold', system-ui, sans-serif;--f-body:'Nunito', 'Helvetica Neue', Arial, sans-serif;--f-mono:'Overpass Mono', ui-monospace, monospace;--w-display:800;--r:18px;--r-card:26px;--r-btn:999px;--bg:#FFFFFF;--paper:#F2F6FF;--ink:#1D1D29;--muted:#575A70;--red:#E8432F;--blue:#1F6FE8;--chalk:#FFC21F;--line:#E0E6F2;--sky:#BFE1FF}
+@media (prefers-color-scheme:dark){:root[data-look="crayon"]:not([data-theme="light"]){--bg:#14151E;--paper:#1E2030;--ink:#F5F5FA;--muted:#A9ACC2;--red:#FF7A66;--blue:#6FA8FF;--chalk:#FFD15C;--line:#2F3349;--sky:#253552;color-scheme:dark}}
+:root[data-look="crayon"][data-theme="dark"]{--bg:#14151E;--paper:#1E2030;--ink:#F5F5FA;--muted:#A9ACC2;--red:#FF7A66;--blue:#6FA8FF;--chalk:#FFD15C;--line:#2F3349;--sky:#253552;color-scheme:dark}
+
+.looks-toggle{position:fixed;right:16px;bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:20;display:inline-flex;align-items:center;gap:.5em;font:700 .95rem/1 var(--f-body);padding:13px 18px;border-radius:999px;border:2px solid var(--ink);background:var(--ink);color:var(--bg);cursor:pointer;box-shadow:0 10px 24px -10px color-mix(in srgb,var(--ink) 60%,transparent)}
+.looks-toggle .dots{display:inline-flex}
+.looks-toggle .dots i{width:10px;height:10px;border-radius:50%;margin-left:-3px;border:1.5px solid var(--ink)}
+.looks{position:fixed;right:16px;bottom:calc(76px + env(safe-area-inset-bottom,0px));z-index:20;width:min(360px,calc(100vw - 32px));max-height:min(620px,calc(100vh - 110px));overflow:auto;background:var(--paper);color:var(--ink);border:1.5px solid var(--line);border-radius:14px;padding:18px;box-shadow:0 24px 50px -20px color-mix(in srgb,var(--ink) 55%,transparent);display:flex;flex-direction:column;gap:10px}
+.looks h2{font:700 1.05rem/1.2 var(--f-body);margin:0}
+.looks .sub{margin:0 0 4px;font-size:.88rem;color:var(--muted)}
+.look{all:unset;box-sizing:border-box;cursor:pointer;display:grid;grid-template-columns:52px minmax(0,1fr);gap:12px;align-items:center;padding:10px 12px;border:1.5px solid var(--line);border-radius:10px;background:var(--bg)}
+.look:hover{border-color:var(--muted)}
+.look:focus-visible{outline:3px solid var(--blue);outline-offset:2px}
+.look[aria-pressed="true"]{border-color:var(--ink);box-shadow:inset 0 0 0 1px var(--ink)}
+.look .aa{width:52px;height:52px;border-radius:8px;display:grid;place-items:center;font-size:1.7rem;line-height:1;border:1px solid color-mix(in srgb,var(--ink) 15%,transparent)}
+.look .nm{font:700 .98rem/1.2 var(--f-body);display:flex;justify-content:space-between;gap:8px;align-items:center}
+.look .sw{display:inline-flex;gap:3px}
+.look .sw i{width:12px;height:12px;border-radius:50%;border:1px solid color-mix(in srgb,var(--ink) 20%,transparent)}
+.look .ds{font-size:.82rem;line-height:1.35;color:var(--muted);margin-top:3px}
+.look .fn{font:500 .66rem/1.2 var(--f-mono);letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin-top:5px}
+
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<div class="airmail" aria-hidden="true"></div>
+<header class="nav">
+  <div class="wrap">
+    <a class="logo" href="#top">praachi <span>on</span> paper</a>
+    <nav aria-label="Main">
+      <a href="#book">The book</a>
+      <a href="#about">About</a>
+      <a href="#sketchbook">Sketchbook</a>
+      <a href="#write">Say hello</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="wrap">
+      <div>
+        <div class="eyebrow">Author · Illustrator · Engineer</div>
+        <h1>Everyday life, drawn like a <em>cartoon</em>.</h1>
+        <p class="lede">I see people, places, and little moments as characters and scenes in a story. My first picture book, <em class="bk">Mia the Everything Bagel</em>, turns a few of them into one.</p>
+        <div class="ctas">
+          <a class="btn primary" href="#book">Get the book <span aria-hidden="true">→</span></a>
+          <a class="btn ghost" href="https://www.instagram.com/praachi_on_paper" target="_blank" rel="noopener">See my drawings</a>
+        </div>
+      </div>
+      <figure class="portrait stamp" style="margin:0">
+        <div class="in">
+          <img src="assets/praachi.jpg" alt="Portrait of Praachi, smiling, in warm window light">
+          <div class="cap"><span class="nm">Praachi</span><span class="fv"><small>First-Class</small>Forever</span></div>
+        </div>
+        <svg class="postmark" viewBox="0 0 170 100" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="50" cy="50" r="40"/><circle cx="50" cy="50" r="30" stroke-dasharray="1.5 3"/><text x="50" y="47" text-anchor="middle">PAR</text><text x="50" y="60" text-anchor="middle">AVION</text><path d="M94 30c10-6 18 6 28 0s18 6 28 0 10 4 18 1M94 50c10-6 18 6 28 0s18 6 28 0 10 4 18 1M94 70c10-6 18 6 28 0s18 6 28 0 10 4 18 1"/></svg>
+      </figure>
+    </div>
+  </section>
+
+  <section class="book" id="book">
+    <div class="wrap book-grid">
+      <div class="cover" role="img" aria-label="Mia the Everything Bagel, written and illustrated by Praachi">
+        <h3>Mia the Everything Bagel</h3>
+        <svg viewBox="0 0 200 140" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+<ellipse cx="104" cy="72" rx="74" ry="56" fill="color-mix(in srgb,var(--chalk) 55%,#C98A4B)"/>
+<ellipse cx="104" cy="72" rx="20" ry="13" fill="var(--sky)"/>
+<ellipse cx="70" cy="40" rx="3.2" ry="1.6" transform="rotate(0 70 40)" fill="var(--paper)" stroke="none"/><ellipse cx="96" cy="30" rx="3.2" ry="1.6" transform="rotate(30 96 30)" fill="var(--ink)" stroke="none"/><ellipse cx="124" cy="36" rx="3.2" ry="1.6" transform="rotate(-20 124 36)" fill="var(--paper)" stroke="none"/><ellipse cx="150" cy="52" rx="3.2" ry="1.6" transform="rotate(40 150 52)" fill="var(--ink)" stroke="none"/><ellipse cx="58" cy="62" rx="3.2" ry="1.6" transform="rotate(60 58 62)" fill="var(--paper)" stroke="none"/><ellipse cx="160" cy="78" rx="3.2" ry="1.6" transform="rotate(-30 160 78)" fill="var(--ink)" stroke="none"/><ellipse cx="74" cy="92" rx="3.2" ry="1.6" transform="rotate(10 74 92)" fill="var(--paper)" stroke="none"/><ellipse cx="140" cy="100" rx="3.2" ry="1.6" transform="rotate(-50 140 100)" fill="var(--ink)" stroke="none"/><ellipse cx="104" cy="104" rx="3.2" ry="1.6" transform="rotate(80 104 104)" fill="var(--paper)" stroke="none"/><ellipse cx="46" cy="84" rx="3.2" ry="1.6" transform="rotate(-10 46 84)" fill="var(--ink)" stroke="none"/><ellipse cx="130" cy="24" rx="3.2" ry="1.6" transform="rotate(70 130 24)" fill="var(--paper)" stroke="none"/><ellipse cx="82" cy="24" rx="3.2" ry="1.6" transform="rotate(-40 82 24)" fill="var(--ink)" stroke="none"/>
+<path d="M90 60h.1M118 60h.1" stroke-width="5"/><path d="M92 92c8 6 18 6 24 0" stroke-width="2.6"/>
+</svg>
+        <div class="by">written &amp; illustrated by Praachi</div>
+      </div>
+      <div>
+        <div class="eyebrow">Now boarding · My first picture book</div>
+        <div class="sec-head" style="margin:12px 0 18px"><h2>A story drawn from little moments</h2></div>
+        <p><span class="ph">Two or three sentences about the book: who the main character is, what happens, and what kids take away from it.</span></p>
+        <p><span class="ph">One line on who it's for, e.g. "For readers ages 3–7 and the grown-ups who read to them."</span></p>
+        <div class="board" role="table" aria-label="Book details">
+          <div class="row h" role="row"><span>Format</span><span>Details</span><span>Status</span></div>
+          <div class="row" role="row"><span>Hardcover</span><span><span class="ph">32 pages · $00.00</span></span><span class="ok">On sale</span></div>
+          <div class="row" role="row"><span>Signed</span><span>Personalized by Praachi</span><span class="ok">Order</span></div>
+          <div class="row" role="row"><span>Visits</span><span>Readings &amp; drawing sessions</span><span>Ask</span></div>
+        </div>
+        <div class="buy">
+          <a class="btn primary" href="#">Buy on Amazon</a>
+          <a class="btn ghost" href="#">Bookshop.org</a>
+          <a class="btn ghost" href="#write">Request a signed copy</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="wrap">
+      <div class="about-intro">
+        <div class="sec-head" style="margin:0">
+          <div class="eyebrow">About me</div>
+          <h2>Everything about the author</h2>
+        </div>
+        <p>I'm an engineer who likes to build things, and I draw the world the way I see it: full of characters. Here's a sheet of my favorites.</p>
+      </div>
+      <div class="album"><div class="album-top"><span>Sheet of 9 · Little things</span><span>Issued by Praachi · 2026</span></div><div class="sheet">
+<div class="stamp"><div class="in"><div class="vig"><span class="val">01¢</span><svg viewBox="0 0 120 90" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 74h62"/><rect x="18" y="58" width="52" height="16" fill="var(--paper)"/><rect x="22" y="42" width="44" height="16" fill="var(--paper)"/><path d="M30 42V24l8-6 8 6v18" fill="var(--paper)"/><path d="M26 66h20M30 50h14"/><rect x="78" y="28" width="30" height="38" stroke-dasharray="3 3" fill="var(--paper)"/><rect x="84" y="34" width="18" height="22"/><path d="M93 50c-6-3-7-8-4-10 2-1 3 0 4 2 1-2 2-3 4-2 3 2 2 7-4 10z" stroke="var(--red)"/></svg><span class="country"><span>Praachi Post</span><span>Par avion</span></span></div><div class="txt"><span class="kind">Errands</span><h3>Libraries &amp; stamps</h3><p>I love trips to the library and picking out new stamps at the post office.</p></div></div></div>
+<div class="stamp"><div class="in"><div class="vig"><span class="val">02¢</span><svg viewBox="0 0 120 90" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="12" y="14" width="96" height="44" rx="3" fill="var(--board)" stroke="var(--ink)"/><g stroke="var(--board-fg)" stroke-width="2"><path d="M20 26h22M50 26h30M88 26h12M20 36h18M50 36h34M88 36h12M20 46h22M50 46h26M88 46h12"/></g><path d="M22 76h44l14-9h7l-5 12H30z" fill="var(--paper)"/><path d="M50 76l-6 10h7l12-10" /></svg><span class="country"><span>Praachi Post</span><span>Par avion</span></span></div><div class="txt"><span class="kind">Airports</span><h3>Reading the gates</h3><p>At airports, I like reading where all the planes at the gates are headed.</p></div></div><svg class="cancel" viewBox="0 0 120 70" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="30" cy="35" r="24"/><circle cx="30" cy="35" r="17" stroke-dasharray="1 2"/><text x="30" y="33" text-anchor="middle">MAR 12</text><text x="30" y="42" text-anchor="middle">2019</text><path d="M58 22c8-5 14 5 22 0s14 5 22 0 10 4 16 1M58 35c8-5 14 5 22 0s14 5 22 0 10 4 16 1M58 48c8-5 14 5 22 0s14 5 22 0 10 4 16 1"/></svg></div>
+<div class="stamp"><div class="in"><div class="vig"><span class="val">03¢</span><svg viewBox="0 0 120 90" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="34" cy="34" r="12" fill="var(--paper)"/><path d="M29 33h.1M39 33h.1M30 39c3 2 6 2 8 0"/><path d="M20 80c0-16 6-24 14-24s14 8 14 24" fill="var(--paper)"/><circle cx="82" cy="40" r="10" fill="var(--paper)"/><path d="M78 39h.1M86 39h.1M79 44h6"/><path d="M70 80c0-12 5-20 12-20s12 8 12 20" fill="var(--paper)"/><path d="M52 14h34a6 6 0 0 1 6 6v6a6 6 0 0 1-6 6H64l-8 6v-6h-4a6 6 0 0 1-6-6v-6a6 6 0 0 1 6-6z" fill="var(--paper)"/><path d="M58 23h22" stroke-dasharray="2 4"/></svg><span class="country"><span>Praachi Post</span><span>Par avion</span></span></div><div class="txt"><span class="kind">Habit</span><h3>People-watching</h3><p>I imagine everyday life like a cartoon, and how I&#39;d draw each scene.</p></div></div></div>
+<div class="stamp"><div class="in"><div class="vig"><span class="val">04¢</span><svg viewBox="0 0 120 90" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="34" y="8" width="52" height="74" rx="26" fill="var(--paper)"/><rect x="42" y="16" width="36" height="58" rx="18" fill="color-mix(in srgb,var(--sky) 70%,var(--paper))"/><path d="M48 52c0-5 4-8 8-7 1-5 9-6 11 0 4 0 6 3 5 7z" fill="var(--paper)"/><path d="M50 30c4-2 8-2 12 0" stroke-dasharray="2 4"/><path d="M14 30v44M8 30h12M14 74l6 0" /><path d="M96 30v44M100 30H92"/><path d="M96 74c-4 0-8-4-8-4" stroke="var(--red)"/></svg><span class="country"><span>Praachi Post</span><span>Par avion</span></span></div><div class="txt"><span class="kind">Seats</span><h3>Swings &amp; window seats</h3><p>I appreciate both. These days my kids get first dibs.</p></div></div></div>
+<div class="stamp"><div class="in"><div class="vig"><span class="val">05¢</span><svg viewBox="0 0 120 90" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 14h40a6 6 0 0 1 6 6v14a6 6 0 0 1-6 6H26l-10 8v-8h-6a6 6 0 0 1-6-6V20a6 6 0 0 1 6-6z" fill="var(--paper)"/><path d="M66 30h44a6 6 0 0 1 6 6v14a6 6 0 0 1-6 6h-6v8l-10-8H66a6 6 0 0 1-6-6V36a6 6 0 0 1 6-6z" fill="var(--paper)"/><path d="M26 56h40a6 6 0 0 1 6 6v12a6 6 0 0 1-6 6H38l-8 6v-6h-4a6 6 0 0 1-6-6V62a6 6 0 0 1 6-6z" fill="var(--paper)"/><text x="30" y="31" text-anchor="middle" font-size="12" fill="var(--ink)" stroke="none" font-family="var(--f-display)">hola</text><text x="88" y="47" text-anchor="middle" font-size="11" fill="var(--ink)" stroke="none" font-family="sans-serif">नमस्ते</text><text x="46" y="72" text-anchor="middle" font-size="12" fill="var(--ink)" stroke="none" font-family="var(--f-display)">ciao</text></svg><span class="country"><span>Praachi Post</span><span>Par avion</span></span></div><div class="txt"><span class="kind">Superpower</span><h3>Every language</h3><p>If I had a superpower, I&#39;d speak every language.</p></div></div><svg class="cancel" viewBox="0 0 120 70" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="30" cy="35" r="24"/><circle cx="30" cy="35" r="17" stroke-dasharray="1 2"/><text x="30" y="33" text-anchor="middle">JUL 3</text><text x="30" y="42" text-anchor="middle">2021</text><path d="M58 22c8-5 14 5 22 0s14 5 22 0 10 4 16 1M58 35c8-5 14 5 22 0s14 5 22 0 10 4 16 1M58 48c8-5 14 5 22 0s14 5 22 0 10 4 16 1"/></svg></div>
+<div class="stamp"><div class="in"><div class="vig"><span class="val">06¢</span><svg viewBox="0 0 120 90" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+<rect x="6" y="6" width="60" height="68" rx="2" fill="var(--paper)"/>
+<g fill="currentColor" stroke="none" opacity=".25"><circle cx="14" cy="14" r="1"/><circle cx="14" cy="22" r="1"/><circle cx="14" cy="30" r="1"/><circle cx="14" cy="38" r="1"/><circle cx="14" cy="46" r="1"/><circle cx="14" cy="54" r="1"/><circle cx="14" cy="62" r="1"/><circle cx="22" cy="14" r="1"/><circle cx="22" cy="22" r="1"/><circle cx="22" cy="30" r="1"/><circle cx="22" cy="38" r="1"/><circle cx="22" cy="46" r="1"/><circle cx="22" cy="54" r="1"/><circle cx="22" cy="62" r="1"/><circle cx="30" cy="14" r="1"/><circle cx="30" cy="22" r="1"/><circle cx="30" cy="30" r="1"/><circle cx="30" cy="38" r="1"/><circle cx="30" cy="46" r="1"/><circle cx="30" cy="54" r="1"/><circle cx="30" cy="62" r="1"/><circle cx="38" cy="14" r="1"/><circle cx="38" cy="22" r="1"/><circle cx="38" cy="30" r="1"/><circle cx="38" cy="38" r="1"/><circle cx="38" cy="46" r="1"/><circle cx="38" cy="54" r="1"/><circle cx="38" cy="62" r="1"/><circle cx="46" cy="14" r="1"/><circle cx="46" cy="22" r="1"/><circle cx="46" cy="30" r="1"/><circle cx="46" cy="38" r="1"/><circle cx="46" cy="46" r="1"/><circle cx="46" cy="54" r="1"/><circle cx="46" cy="62" r="1"/><circle cx="54" cy="14" r="1"/><circle cx="54" cy="22" r="1"/><circle cx="54" cy="30" r="1"/><circle cx="54" cy="38" r="1"/><circle cx="54" cy="46" r="1"/><circle cx="54" cy="54" r="1"/><circle cx="54" cy="62" r="1"/></g>
+<path d="M18 14v6M38 14v6M54 14v6" stroke-width="2"/>
+<path d="M18 20v34" stroke-width="3.2"/><rect x="11" y="18" width="14" height="7" rx="1.5" fill="var(--red)"/>
+<rect x="34.5" y="20" width="7" height="16" rx="3" fill="var(--blue)"/><path d="M38 36v20"/>
+<path d="M54 22v28"/><circle cx="54" cy="56" r="5.5" fill="var(--paper)"/><path d="M51 53l6 6" stroke-width="2"/><circle cx="54" cy="21" r="5" fill="var(--paper)"/>
+<rect x="68" y="62" width="46" height="12" rx="2" fill="var(--paper)"/>
+<circle cx="76" cy="68" r="4" stroke-dasharray="2.5 2" stroke-width="3"/>
+<rect x="86" y="54" width="24" height="8" rx="2" fill="color-mix(in srgb,var(--blue) 40%,var(--paper))"/>
+<rect x="88" y="47" width="20" height="7" rx="2" fill="color-mix(in srgb,var(--red) 40%,var(--paper))"/>
+<path d="M95 47l3 3 3-3" stroke-width="1.8"/>
+<path d="M76 62V40l18-10"/><circle cx="76" cy="40" r="2.6" fill="var(--paper)"/><circle cx="94" cy="30" r="2.6" fill="var(--paper)"/>
+<path d="M94 30l14 4-4 9-12-5z" fill="var(--paper)"/>
+<path d="M112 22l3-4M108 18l1-5M116 28h4" stroke="var(--chalk)" stroke-width="2.4"/>
+<path d="M6 84h108" stroke-dasharray="2 5"/>
+</svg><span class="country"><span>Praachi Post</span><span>Par avion</span></span></div><div class="txt"><span class="kind">Workshop</span><h3>Hardware stores</h3><p>Left alone, I get lost in arts and crafts, auto parts, and hardware aisles. One day I&#39;ll build a laundry-folding apparatus.</p></div></div></div>
+<div class="stamp"><div class="in"><div class="vig"><span class="val">07¢</span><svg viewBox="0 0 120 90" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M30 52a13 13 0 0 1 3-25 19 19 0 0 1 36-3 14 14 0 0 1 17 28z" fill="var(--paper)"/><path d="M60 54l-8 14h10l-6 14" stroke="var(--chalk)" stroke-width="3.2"/><path d="M8 20c8-4 14 4 22 0M88 66c8-4 14 4 22 0M14 70c6-3 10 3 16 0"/></svg><span class="country"><span>Praachi Post</span><span>Par avion</span></span></div><div class="txt"><span class="kind">Weather</span><h3>Before the storm</h3><p>I love the way the air feels right before a big storm.</p></div></div><svg class="cancel" viewBox="0 0 120 70" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="30" cy="35" r="24"/><circle cx="30" cy="35" r="17" stroke-dasharray="1 2"/><text x="30" y="33" text-anchor="middle">NOV 18</text><text x="30" y="42" text-anchor="middle">2023</text><path d="M58 22c8-5 14 5 22 0s14 5 22 0 10 4 16 1M58 35c8-5 14 5 22 0s14 5 22 0 10 4 16 1M58 48c8-5 14 5 22 0s14 5 22 0 10 4 16 1"/></svg></div>
+<div class="stamp"><div class="in"><div class="vig"><span class="val">08¢</span><svg viewBox="0 0 120 90" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><g fill="var(--paper)"><rect x="16" y="50" width="20" height="20"/><rect x="36" y="50" width="20" height="20"/><rect x="26" y="30" width="20" height="20"/><rect x="26" y="10" width="20" height="20"/></g><text x="26" y="64" font-size="10" fill="var(--ink)" stroke="none" text-anchor="middle" font-family="var(--f-display)">1</text><text x="46" y="64" font-size="10" fill="var(--ink)" stroke="none" text-anchor="middle" font-family="var(--f-display)">2</text><text x="36" y="44" font-size="10" fill="var(--ink)" stroke="none" text-anchor="middle" font-family="var(--f-display)">3</text><text x="36" y="24" font-size="10" fill="var(--ink)" stroke="none" text-anchor="middle" font-family="var(--f-display)">4</text><rect x="70" y="56" width="34" height="10" rx="5" transform="rotate(-24 87 61)" fill="var(--chalk)"/><path d="M68 30c10-8 26-8 38 4" stroke="var(--red)" stroke-dasharray="1 6" stroke-width="3"/></svg><span class="country"><span>Praachi Post</span><span>Par avion</span></span></div><div class="txt"><span class="kind">Comforts</span><h3>Blankets &amp; chalk</h3><p>Big blankets indoors. Sidewalk chalk outdoors.</p></div></div></div>
+<div class="stamp"><div class="in"><div class="vig"><span class="val">09¢</span><svg viewBox="0 0 120 90" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M60 10c18 0 32 14 32 32 0 2 0 3-1 5-5-1-9 3-8 8-4 0-7 3-7 7-5 4-11 6-16 6-18 0-32-14-32-32s14-26 32-26z" fill="color-mix(in srgb,var(--chalk) 55%,var(--paper))"/><g fill="var(--ink)" stroke="none"><circle cx="46" cy="30" r="3.5"/><circle cx="66" cy="26" r="3"/><circle cx="58" cy="44" r="3.5"/><circle cx="42" cy="52" r="3"/><circle cx="72" cy="56" r="3"/></g><path d="M20 82h80" stroke-dasharray="2 5"/><path d="M96 24l6-4M98 34h8M94 14l3-6"/></svg><span class="country"><span>Praachi Post</span><span>Par avion</span></span></div><div class="txt"><span class="kind">Kitchen</span><h3>The cookie</h3><p>I perfected the perfect chocolate chip cookie.</p></div></div><svg class="cancel" viewBox="0 0 120 70" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="30" cy="35" r="24"/><circle cx="30" cy="35" r="17" stroke-dasharray="1 2"/><text x="30" y="33" text-anchor="middle">APR 27</text><text x="30" y="42" text-anchor="middle">2025</text><path d="M58 22c8-5 14 5 22 0s14 5 22 0 10 4 16 1M58 35c8-5 14 5 22 0s14 5 22 0 10 4 16 1M58 48c8-5 14 5 22 0s14 5 22 0 10 4 16 1"/></svg></div>
+</div></div>
+      <figure class="signoff">
+        <div class="airmail" aria-hidden="true"></div>
+        <blockquote>I suppose those are some of the little things that make <em>me,&nbsp;me.</em></blockquote>
+        <figcaption><span class="sig">Praachi</span><span class="pmk" aria-hidden="true">Sealed<br>&amp; sent</span></figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section id="sketchbook" style="background:var(--paper);border-block:1px solid var(--line)">
+    <div class="wrap">
+      <div class="feed-head">
+        <div class="sec-head">
+          <div class="eyebrow">Postcards from Instagram</div>
+          <h2>Fresh from the sketchbook</h2>
+          <p>New drawings go up on Instagram first. Here are the latest ones.</p>
+        </div>
+        <a class="handle" href="https://www.instagram.com/praachi_on_paper" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>@praachi_on_paper</a>
+      </div>
+      <div class="feed" id="feed"></div>
+      <p class="feed-note"><a href="https://www.instagram.com/praachi_on_paper" target="_blank" rel="noopener">Follow along on Instagram →</a></p>
+    </div>
+  </section>
+
+  <section id="write">
+    <div class="wrap">
+      <div class="envelope">
+        <div class="env-in">
+          <div>
+            <div class="eyebrow">Par avion</div>
+            <h2>Write me a letter</h2>
+            <p>Whether you want to say hello, tell me about a little thing you love, or ask a question, I'd love to hear from you. Letters, big or small, are always welcome here.</p>
+            <form id="signup" novalidate>
+              <label for="name">Your name</label>
+              <input id="name" name="name" autocomplete="name" placeholder="Jamie">
+              <label for="email">Email</label>
+              <input id="email" name="email" type="email" autocomplete="email" placeholder="jamie@example.com" required>
+              <label for="reason">I'm writing about</label>
+              <select id="reason" name="reason">
+                <option>Just saying hello</option>
+                <option>Sharing a little thing I love</option>
+                <option>A question for you</option>
+                <option>Keep me posted on new drawings &amp; books</option>
+                <option>A signed copy</option>
+                <option>A school or library visit</option>
+                <option>Something else entirely</option>
+              </select>
+              <label for="message">Your note <span style="text-transform:none;letter-spacing:0">(optional)</span></label>
+              <textarea id="message" name="message" rows="4" placeholder="Hi Praachi, I wanted to tell you about..."></textarea>
+              <div><button class="btn primary" type="submit" style="cursor:pointer">Send it off</button></div>
+              <p class="note" id="note" role="status"></p>
+            </form>
+          </div>
+          <div class="reach">
+            <div class="line"><span class="eyebrow" style="color:var(--muted)">Instagram</span><a class="v" href="https://www.instagram.com/praachi_on_paper" target="_blank" rel="noopener">@praachi_on_paper</a></div>
+            <div class="line"><span class="eyebrow" style="color:var(--muted)">Email</span><span class="v"><span class="ph">hello@yourdomain.com</span></span></div>
+            <div class="line"><span class="eyebrow" style="color:var(--muted)">Visits &amp; get-togethers</span><span class="v">Story time, drawing together, or just a good chat. I love visiting schools, libraries, and anywhere kids and curious grown-ups gather.</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap"><span>© 2026 Praachi on Paper</span><span>Drawn by hand, sent with love.</span></div>
+</footer>
+<div class="airmail" aria-hidden="true"></div>
+
+
+<script>
+/* Instagram posts. To add a real post: set img (image URL or data URI), url (the post link), caption and date. */
+var POSTS = [
+  { img: "", url: "https://www.instagram.com/praachi_on_paper", caption: "Latest post", date: "" },
+  { img: "", url: "https://www.instagram.com/praachi_on_paper", caption: "", date: "" },
+  { img: "", url: "https://www.instagram.com/praachi_on_paper", caption: "", date: "" },
+  { img: "", url: "https://www.instagram.com/praachi_on_paper", caption: "", date: "" },
+  { img: "", url: "https://www.instagram.com/praachi_on_paper", caption: "", date: "" },
+  { img: "", url: "https://www.instagram.com/praachi_on_paper", caption: "", date: "" }
+];
+(function(){
+  var feed = document.getElementById('feed');
+  var pencil = '<svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 38l4-12 20-20 8 8-20 20z"/><path d="M30 10l8 8M10 38l6-2"/></svg>';
+  function esc(t){ var d=document.createElement('div'); d.textContent=t||''; return d.innerHTML; }
+  POSTS.forEach(function(p, i){
+    var a = document.createElement('a');
+    a.className = 'post'; a.href = p.url || 'https://www.instagram.com/praachi_on_paper';
+    a.target = '_blank'; a.rel = 'noopener';
+    var media = p.img
+      ? '<img src="' + esc(p.img) + '" alt="' + esc(p.caption || 'Instagram post by Praachi') + '" loading="lazy">'
+      : '<div class="empty">' + pencil + '<span>Instagram post ' + (i + 1) + '</span></div>';
+    a.innerHTML = '<div class="ph-img">' + media + '</div>' +
+      '<div class="meta"><span class="cap">' + esc(p.caption || 'New drawing') + '</span><span class="date">' + esc(p.date || 'On Instagram') + '</span></div>' +
+      (i % 3 === 0 ? '<span class="pm" aria-hidden="true">Posted<br>with love</span>' : '');
+    feed.appendChild(a);
+  });
+})();
+</script>
+<script>
+document.getElementById('signup').addEventListener('submit', function (e) {
+  e.preventDefault();
+  var email = document.getElementById('email');
+  var note = document.getElementById('note');
+  if (!email.value || !/^\S+@\S+\.\S+$/.test(email.value)) {
+    note.textContent = 'Add your email so I know where to write back.';
+    email.focus();
+    return;
+  }
+  note.textContent = 'Thank you for writing! Letters start reaching my inbox once the site goes live.';
+  this.reset();
+});
+</script>
+
+<button class="looks-toggle" id="looks-toggle" type="button" aria-expanded="false" aria-controls="looks"><span class="dots" aria-hidden="true"><i style="background:var(--red)"></i><i style="background:var(--blue)"></i><i style="background:var(--chalk)"></i></span>Try a look</button>
+<div class="looks" id="looks" role="dialog" aria-label="Style options" hidden>
+  <h2>Pick a look for the site</h2>
+  <p class="sub">Each one swaps the fonts, colors and shapes across the whole page. Dark mode has its own version of every palette.</p>
+  <button class="look" type="button" data-look="airmail" aria-pressed="false"><span class="aa" style="font-family:'Shantell Sans',serif;font-weight:800;background:#F5F6FA;color:#1C2340">Aa</span><span><span class="nm">Airmail<span class="sw" aria-hidden="true"><i style="background:#1C2340"></i><i style="background:#D2463B"></i><i style="background:#2E58B5"></i><i style="background:#F2C14E"></i></span></span><span class="ds">Post office and airport gates. Red and blue airmail stripes, a hand-lettered headline.</span><span class="fn">Shantell Sans + Atkinson Hyperlegible</span></span></button><button class="look" type="button" data-look="chalk" aria-pressed="false"><span class="aa" style="font-family:'Gaegu',serif;font-weight:700;background:#F3F1F8;color:#2B2A45">Aa</span><span><span class="nm">Sidewalk Chalk<span class="sw" aria-hidden="true"><i style="background:#2B2A45"></i><i style="background:#D9487A"></i><i style="background:#1F8C7E"></i><i style="background:#F4B942"></i></span></span><span class="ds">Soft and playful. Chalky pink, mint and sunshine; rounder corners. Goes chalkboard-slate in dark mode.</span><span class="fn">Gaegu + Nunito</span></span></button><button class="look" type="button" data-look="storm" aria-pressed="false"><span class="aa" style="font-family:'Young Serif',serif;font-weight:400;background:#ECEFF4;color:#1E2838">Aa</span><span><span class="nm">Before the Storm<span class="sw" aria-hidden="true"><i style="background:#1E2838"></i><i style="background:#5847C2"></i><i style="background:#2F7397"></i><i style="background:#F2C200"></i></span></span><span class="ds">Calmer and more literary. Indigo sky with a single bolt of yellow; crisp square edges.</span><span class="fn">Young Serif + Figtree</span></span></button><button class="look" type="button" data-look="library" aria-pressed="false"><span class="aa" style="font-family:'Zilla Slab',serif;font-weight:700;background:#E9F0EB;color:#163A36">Aa</span><span><span class="nm">Library Card<span class="sw" aria-hidden="true"><i style="background:#163A36"></i><i style="background:#BE3F2B"></i><i style="background:#5B3C99"></i><i style="background:#E3AC32"></i></span></span><span class="ds">Date-stamp red and purple ink on library green. Typewriter details, a bookish feel.</span><span class="fn">Zilla Slab + Source Sans 3 + Courier Prime</span></span></button><button class="look" type="button" data-look="crayon" aria-pressed="false"><span class="aa" style="font-family:'Baloo 2',serif;font-weight:800;background:#FFFFFF;color:#1D1D29">Aa</span><span><span class="nm">Crayon Box<span class="sw" aria-hidden="true"><i style="background:#1D1D29"></i><i style="background:#E8432F"></i><i style="background:#1F6FE8"></i><i style="background:#FFC21F"></i></span></span><span class="ds">Bright primary colors on white, chunky rounded type. The most kid-forward option.</span><span class="fn">Baloo 2 + Nunito</span></span></button>
+</div>
+<script>
+(function(){
+  var root=document.documentElement, panel=document.getElementById('looks'), tog=document.getElementById('looks-toggle');
+  var btns=[].slice.call(panel.querySelectorAll('.look'));
+  function set(k){
+    if(k==='airmail') root.removeAttribute('data-look'); else root.setAttribute('data-look',k);
+    btns.forEach(function(b){b.setAttribute('aria-pressed',String(b.dataset.look===k));});
+    try{localStorage.setItem('praachi-look',k);}catch(e){}
+  }
+  var start='airmail', h=(location.hash||'').replace('#look-','');
+  if(btns.some(function(b){return b.dataset.look===h;})) start=h;
+  else { try{var s=localStorage.getItem('praachi-look'); if(s && btns.some(function(b){return b.dataset.look===s;})) start=s;}catch(e){} }
+  set(start);
+  btns.forEach(function(b){b.addEventListener('click',function(){set(b.dataset.look);});});
+  tog.addEventListener('click',function(){var open=panel.hidden; panel.hidden=!open; tog.setAttribute('aria-expanded',String(open));});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape' && !panel.hidden){panel.hidden=true; tog.setAttribute('aria-expanded','false'); tog.focus();}});
+})();
+</script>
+</body>
+</html>
